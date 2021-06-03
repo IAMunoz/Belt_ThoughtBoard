@@ -1,0 +1,12 @@
+.page-header{
+    background-color: white;
+
+}
+#formRegister{
+    border: gray 1px solid;
+    padding: 10px;
+}
+#formLogin{
+    border: gray 1px solid;
+    padding: 10px;
+}

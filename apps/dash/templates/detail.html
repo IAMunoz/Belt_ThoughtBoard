@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col mr-5">
+            <div class="row mb-3">
+                <div class="col-sm-2">
+                    <p>{{thought.poster.name}} says:</p>
+                </div>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-sm-8 p-2 pb-3 border border-secondary">
+                            {{thought.title}}
+                        </div>
+                    </div> 
+                    <div class="text-center mt-3">
+                        {% if not already_liked%}
+                        <a href="like/{{thought.id}}"><button type="button" class="btn btn-success">like</button></a>  
+                        {%else%}
+                        <a href="dislike/{{thought.id}}"><button type="button" class="btn btn-warning">Unlike</button></a> 
+                        {%endif%}
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    
+                </div>
+
+            </div>
+            <h3>People who liked this thought:</h3>
+            <div class="row justify-content-md-center">
+                <table class="table table-striped table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for like in likes%}
+                        <tr scope="row">
+                            <td>{{like.owner.name}}</td>
+                            <td>{{like.owner.lastname}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
